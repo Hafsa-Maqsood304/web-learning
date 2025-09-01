@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Banking System</title>
+</head>
+<body>
+   <h1>Bank Management system</h1>
+
+    <input type="text" id="name" placeholder="Name">
+    <input type="number" id="accountno" placeholder="Account number">
+    <input type="number" id="balance" placeholder="Balance">
+     <input type="number" id="amount" placeholder="Amount">
+
+
+    <button onclick="addcustomer()">Add customer</button>
+    <button onclick="deposit()">Deposit</button>
+    <button onclick="withdraw()">Withdraw</button>
+    <button onclick="checkbalance()">Check balance</button>
+
+    <p id="output"></p>
+ 
+   <script> 
+       let customers=[];
+
+       function addcustomer(){
+       let name=document.getElementById('name').value;
+       let accountnum=parseInt(document.getElementById('accountno').value);
+       let balance=parseInt(document.getElementById('balance').value);
+
+      let customer = {
+        cname:name,
+        AcNum:accountnum,
+        money:balance 
+       };
+
+       customers.push(customer)
+       document.getElementById('output').innerText="Customer Added:" + name;
+    }
+    
+     function deposit(){
+       let accountnum=parseInt(document.getElementById('accountno').value);
+
+      let amount=parseInt(document.getElementById('amount').value)
+
+      for(let i=0 ;i<customers.length; i++){
+        if(customers[i].AcNum==accountnum){
+         customers[i].money+=amount;
+         document.getElementById('output').innerText="Your current balance:"+ customers[i].money;
+         return;
+        }
+      }
+      document.getElementById('output').innerText="Account not found"; 
+
+     }
+
+
+      function withdraw(){
+     let accountnum=parseInt(document.getElementById('accountno').value);
+
+      let amount=parseInt(document.getElementById('amount').value)
+
+      for(let i=0 ;i<customers.length; i++){
+        if(customers[i].AcNum==accountnum){
+          if(customers[i].money>amount){
+         customers[i].money-=amount;
+         document.getElementById('output').innerText="Your current balance:"+ customers[i].money;
+         return;
+          }
+          document.getElementById('output').innerText="Not enough balance"; 
+        }
+      }
+        document.getElementById('output').innerText="Account not found"; 
+     }
+
+
+     function checkbalance(){
+      let accountnum=parseInt(document.getElementById('accountno').value);     
+
+      for(let i=0 ;i<customers.length; i++){
+        if(customers[i].AcNum==accountnum){
+         document.getElementById('output').innerText=
+          "Name: " + customers[i].cname +
+          " | Account No: " + customers[i].AcNum+
+          " | Balance: " + customers[i].money; 
+           return;
+          }
+        }
+        document.getElementById('output').innerText="Account not found";           
+      }
+     
+
+    </script>
+</body>
+</html>
