@@ -4,22 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic Banking System</title>
+    <style>
+
+      .container{
+        background-color: rgb(163, 186, 218);
+        padding-top: 100px;
+        padding-bottom: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1{
+        max-width: fit-content;
+        border-bottom:solid black 1px;
+      }
+
+      .entry{
+        padding: 30px;
+        background-color: white;
+        border-radius: 10px;
+        border: solid white 1px;
+        display: flex;
+        max-width: fit-content;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      input{
+        background-color: rgba(244, 244, 244, 0.97);
+        border-radius: 5px;
+        border-color: rgb(149, 149, 149);
+        margin: 5px;
+        padding :5px;
+        text-align: center;
+        max-width: fit-content;
+      }
+
+      .buttons{
+        margin-top: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      button{
+      padding: 10px;
+      border-radius: 5px;
+      border-color: rgb(132, 182, 233);
+      background-color: rgb(132, 182, 233);
+      margin: 2px;
+      }
+
+    </style>
 </head>
 <body>
+   <div class="container">
+
+   <div class="entry">
    <h1>Bank Management system</h1>
 
     <input type="text" id="name" placeholder="Name">
     <input type="number" id="accountno" placeholder="Account number">
     <input type="number" id="balance" placeholder="Balance">
      <input type="number" id="amount" placeholder="Amount">
+    
 
-
+    <div class="buttons">
     <button onclick="addcustomer()">Add customer</button>
     <button onclick="deposit()">Deposit</button>
     <button onclick="withdraw()">Withdraw</button>
     <button onclick="checkbalance()">Check balance</button>
+    </div>
 
     <p id="output"></p>
+
+      </div>
+
+      </div>
  
    <script> 
        let customers=[];
