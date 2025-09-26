@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library system</title>
+    <style>
+      h1{
+        text-align: center;
+        border-bottom:solid black 2px;
+        max-width: fit-content;
+      }
+    .book{
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        max-width: fit-content;
+        margin: 2px;
+    }
+    .searchbar{
+       display: flex;
+       flex-direction: row;
+       justify-content: right;
+       max-width: fit-content;  
+    }
+.container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+input{
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button{
+    padding: 5px;
+    margin: 5px;
+    background-color: rgb(164, 191, 203);
+    border-radius: 5px;
+    border-color: rgb(164, 191, 203);
+}
+
+
+    </style>
+</head>
+<body>
+   <div class="container">
+
+<h1>Library</h1>
+
+<div class="book">
+ <input type="text" id="title" placeholder="Enter title of the book">
+ <input type="text" id="author" placeholder="Enter author's name">
+ <input type="number" id="year" placeholder="Enter year">
+ <input type="number" id="isbn" placeholder="Enter ISBN">
+
+ <button onclick="addbook()">Add book</button>
+ <button onclick="display()">Display All</button>
+  <p id="output1"></p>
+</div>
+
+
+<div class="searchbar">
+  <input type="search" id="searcht" placeholder="Search by Title" >
+ <button onclick="search()">Search</button>
+</div>
+
+  <p id="output2"></p>
+
+
+</div>
+
+ <script>
+    let books=[];
+
+    function addbook(){
+
+    let title=document.getElementById('title').value;
+    let name=document.getElementById('author').value;
+    let year=parseInt(document.getElementById('year').value);
+    let isbn=parseInt(document.getElementById('isbn').value);
+
+
+    let book={
+        btitle :title,
+        author:name,
+        byear:year,
+        bisbn:isbn
+    };
+   books.push(book)
+   document.getElementById('output1').innerText="Book Added: " + title;
+
+
+
+    document.getElementById('title').value="";
+    document.getElementById('author').value="";
+    document.getElementById('year').value="";
+    document.getElementById('isbn').value="";
+
+}
+
+   function display(){
+    if(books.length==0){
+    document.getElementById('output1').innerText="There are no books stored yet.";
+    return;
+    }
+
+    let result="";
+    for(let i=0;i<books.length;i++){
+     result += "Title; " +books[i].btitle+
+      " | Author: " + books[i].author+
+      " | Year: "  + books[i].byear +"\n";
+    document.getElementById('output1').innerText= result;
+
+    }
+    
+   }
+  
+   function search(){
+    let title=document.getElementById('searcht').value;
+
+
+    for(let i=0;i<books.length;i++){
+        if(books[i].btitle==title){
+           document.getElementById('output2').innerText="Title: " + books[i].btitle+
+           " | Author: "+ books[i].author +
+           " | Year: "+ books[i].byear;
+         }
+        else
+         document.getElementById('output2').innerText="Book not found." ;
+    }
+    
+
+   }
+   
+
+ </script>
+
+</body>
+</html>

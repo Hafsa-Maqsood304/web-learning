@@ -1,0 +1,50 @@
+<!--A form with fields: Name, Email, Password, and a Submit button.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+    .container{
+         background-image:url("https://png.pngtree.com/background/20250206/original/pngtree-the-scenic-view-of-lake-against-sky-during-sunset-picture-image_15489581.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+    padding-bottom: 200px;
+    }
+    .form{
+        border-radius: 10px;
+        border:solid black 1px;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        }
+    input{ 
+            margin: 5px;
+            padding:5px;
+            text-align: center;
+            max-width: fit-content;
+         }
+    button{
+        margin: 5px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="form">
+    <p id="heading"><b>Form</b></p>
+    <input type="text" id="name" placeholder="Name">
+    <input type="email" id="mail" placeholder="Email">
+    <input type="password" id="password" placeholder="password">
+    <button>Submit</button>
+    </div>
+    </div>
+</body>
+</html>
