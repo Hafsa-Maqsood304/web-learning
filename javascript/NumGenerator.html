@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Generator</title>
+    <style>
+        body{
+    text-align: center;
+}
+#myButton{
+   font-size: 2em;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.myLabel{
+    display:block;
+    font-size: 2em;
+}
+    </style>
+</head>
+<body>
+     <button id="myButton">Roll</button><br><br>
+  <label id="label1"  class="myLabel"></label><br>
+  <label id="label2"  class="myLabel"></label> <button id="myButton">Roll</button><br><br>
+  <label id="label1"  class="myLabel"></label><br>
+  <label id="label2"  class="myLabel"></label>  
+  
+  <script>
+    const Button=document.getElementById("myButton");
+const label1=document.getElementById("label1");
+const label2=document.getElementById("label2");
+
+let randomNum1,randomNum2;
+let min=1;
+let max=6;
+
+
+Button.onclick=function(){
+randomNum1=Math.floor(Math.random()*max)+min;
+randomNum2=Math.floor(Math.random()*max)+min;
+label1.textContent=randomNum1;
+label2.textContent=randomNum2;
+}
+  </script>
+</body>
+</html>
