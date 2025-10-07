@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+</head>
+<body>
+    <script>
+        const min=1, max=100;
+        const guess=Math.floor(Math.random()*max) + min;
+
+        let attempts=0;
+        let running=true;
+
+        while(running){
+            attempts++;
+          let num=  window.prompt(`Guess a number between ${min} to ${max}`);
+          num=Number(num);
+          
+          if(num<1 || num>100 || isNaN(num)){
+            window.alert(`Enter a valid number.`)
+          }
+          else if(num>guess){
+            window.alert(`Too HIGH! Try Again.`)
+           }
+           else if(num<guess){
+            window.alert(`Too LOW! Try Again.`)
+           }
+           else{
+             window.alert(`CONGRATULATIONS!The answer is ${guess}, It took you ${attempts} attempts.`)
+           }
+        }
+    
+    </script>
+</body>
+</html>
