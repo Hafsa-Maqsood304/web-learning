@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        
+        h1{
+            color: rgb(52, 101, 153);
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+    <h1>Temperature<br>Conversion:</h1>
+    <input type="number" id="temp" ><br><br>
+    <input type="radio" id="toFaren" name="scale" >Celsius to Fahrenheit<br>
+    <input type="radio" id="toCelcius" name="scale">Fahrenheit to Celsius<br><br>
+    <button id="mysubmit">Submit</button><br><br>
+    <p id="result"></p><br>
+    </div>
+    <script>
+        let tofaren=document.getElementById("toFaren");
+        let tocelcius=document.getElementById("toCelcius");
+        let result=document.getElementById("result");
+        let submit=document.getElementById("mysubmit");
+
+        submit.onclick=function Conversion(){
+        let temp=document.getElementById("temp").value;
+        if(tofaren.checked){
+             temp*=(9/5)
+             temp+=32;
+            result.innerText=`The temperature in farhenheit is ${temp}F`;
+          
+        }
+          else if(tocelcius.checked){
+             temp-=32;
+             temp*=(5/9)
+            result.innerText=`The temperature in Celsius is ${temp}C`;
+          }
+        
+    }
+    </script>
+</body>
+</html>
